@@ -14,10 +14,6 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Facade: exposes a small API while coordinating catalog, pricing,
- * booking, payment, and availability-notification subsystems.
- */
 public class RentalServiceFacade {
     private final VehicleCatalog catalog;
     private final PricingContext pricingContext;
@@ -60,12 +56,6 @@ public class RentalServiceFacade {
         return subject;
     }
 
-    /**
-     * Calculates the price, builds the booking, processes payment,
-     * and marks the vehicle unavailable after successful payment.
-     *
-     * duration is hours when hourlyPricing is true; otherwise days.
-     */
     public RentalBooking bookVehicle(Customer customer, String vehicleId,
                                      LocalDateTime start, LocalDateTime end,
                                      int duration, boolean hourlyPricing) {
@@ -80,7 +70,6 @@ public class RentalServiceFacade {
             throw new IllegalArgumentException("Valid customer and rental dates are required.");
         }
 
-        // Select the pricing algorithm for this booking (Strategy pattern).
         pricingContext.setPricingStrategy(hourlyPricing
                 ? new HourlyPricingStrategy()
                 : new DailyPricingStrategy());
@@ -105,9 +94,6 @@ public class RentalServiceFacade {
         return booking;
     }
 
-    /**
-     * Returns a vehicle for an active booking and notifies observers.
-     */
     public void returnVehicle(String bookingId) {
         RentalBooking booking = activeBookings.remove(bookingId);
         if (booking == null) {

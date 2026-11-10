@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/** Internal subsystem component managed by RentalServiceFacade. */
 public class VehicleCatalog {
     private final Map<String, Vehicle> vehicles = new LinkedHashMap<>();
 

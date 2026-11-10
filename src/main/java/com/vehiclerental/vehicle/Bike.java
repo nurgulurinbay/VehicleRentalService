@@ -1,8 +1,5 @@
 package com.vehiclerental.vehicle;
 
-/**
- * In this project, Bike means a motorbike/motorcycle.
- */
 public class Bike extends Vehicle {
     private final int engineCapacityCc;
 

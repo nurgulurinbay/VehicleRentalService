@@ -3,7 +3,6 @@ package com.vehiclerental.observer;
 import com.vehiclerental.model.Customer;
 import com.vehiclerental.vehicle.Vehicle;
 
-/** Concrete observer that notifies a customer about one vehicle. */
 public class CustomerNotification implements AvailabilityObserver {
     private final Customer customer;
 

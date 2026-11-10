@@ -2,7 +2,6 @@ package com.vehiclerental.observer;
 
 import com.vehiclerental.vehicle.Vehicle;
 
-/** Concrete observer that reports availability changes to the administrator. */
 public class AdminNotification implements AvailabilityObserver {
     private final String adminName;
 

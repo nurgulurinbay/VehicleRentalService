@@ -5,10 +5,6 @@ import com.vehiclerental.vehicle.Vehicle;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Subject in the Observer pattern.
- * Observers subscribe to a particular vehicle's availability updates.
- */
 public class VehicleAvailabilitySubject {
     private final Vehicle vehicle;
     private final List<AvailabilityObserver> observers = new ArrayList<>();
@@ -34,15 +30,11 @@ public class VehicleAvailabilitySubject {
     }
 
     public void notifyObservers() {
-        // Copy avoids modification issues if an observer unsubscribes in callback.
         for (AvailabilityObserver observer : List.copyOf(observers)) {
             observer.onAvailabilityChanged(vehicle);
         }
     }
 
-    /**
-     * Change availability and notify observers only when the status actually changes.
-     */
     public void setAvailable(boolean available) {
         if (vehicle.isAvailable() == available) {
             return;

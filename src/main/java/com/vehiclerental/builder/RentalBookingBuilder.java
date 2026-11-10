@@ -5,9 +5,6 @@ import com.vehiclerental.vehicle.Vehicle;
 
 import java.time.LocalDateTime;
 
-/**
- * Builder: constructs a RentalBooking step by step.
- */
 public class RentalBookingBuilder {
     private Customer customer;
     private Vehicle vehicle;
@@ -35,9 +32,6 @@ public class RentalBookingBuilder {
         return this;
     }
 
-    /**
-     * The pricing module (Member 2) calculates this value and passes it here.
-     */
     public RentalBookingBuilder setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
         return this;

@@ -1,8 +1,5 @@
 package com.vehiclerental.model;
 
-/**
- * Shared domain model. Other team members can use this class too.
- */
 public class Customer {
     private final String id;
     private final String name;

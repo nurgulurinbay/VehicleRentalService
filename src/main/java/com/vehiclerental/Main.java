@@ -17,13 +17,8 @@ import com.vehiclerental.vehicle.Vehicle;
 
 import java.time.LocalDateTime;
 
-/**
- * Integrated demonstration of all six patterns.
- * Console-based workflow for the team project.
- */
 public class Main {
     public static void main(String[] args) {
-        // FACTORY METHOD: create concrete vehicle objects.
         Vehicle car = new CarCreator(5).createVehicle(
                 "CAR-001", "Toyota", "Camry", 15.0, 90.0);
         Vehicle bike = new BikeCreator(600).createVehicle(
@@ -31,14 +26,11 @@ public class Main {
         Vehicle van = new VanCreator(1200).createVehicle(
                 "VAN-001", "Ford", "Transit", 30.0, 170.0);
 
-        // STRATEGY: select hourly pricing for this demonstration.
         PricingContext pricing = new PricingContext(new HourlyPricingStrategy());
 
-        // ADAPTER: adapt the simulated external payment gateway.
         PaymentAdapter paymentAdapter =
                 new PaymentAdapter(new ExternalPaymentGateway());
 
-        // FACADE: provide one simple entry point to the rental subsystem.
         RentalServiceFacade rentalService = new RentalServiceFacade(
                 new VehicleCatalog(), pricing, paymentAdapter);
 
@@ -46,7 +38,6 @@ public class Main {
         rentalService.registerVehicle(bike);
         rentalService.registerVehicle(van);
 
-        // OBSERVER: subscribe a customer and an administrator to CAR-001.
         Customer customer = new Customer(
                 "CUS-001", "Alex Morgan", "alex@example.com");
 
@@ -61,7 +52,6 @@ public class Main {
         LocalDateTime start = LocalDateTime.of(2026, 11, 12, 10, 0);
         LocalDateTime end = LocalDateTime.of(2026, 11, 12, 14, 0);
 
-        // FACADE coordinates pricing, Builder, Adapter, and Observer.
         RentalBooking booking = rentalService.bookVehicle(
                 customer, "CAR-001", start, end, 4, true);
 

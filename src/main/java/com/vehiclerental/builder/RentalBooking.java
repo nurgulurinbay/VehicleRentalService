@@ -6,9 +6,6 @@ import com.vehiclerental.vehicle.Vehicle;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Immutable booking created by RentalBookingBuilder.
- */
 public class RentalBooking {
     private final String bookingId;
     private final Customer customer;

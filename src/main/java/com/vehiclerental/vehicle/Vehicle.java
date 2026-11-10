@@ -1,8 +1,5 @@
 package com.vehiclerental.vehicle;
 
-/**
- * Common abstraction for all rentable vehicles.
- */
 public abstract class Vehicle {
     private final String id;
     private final String brand;

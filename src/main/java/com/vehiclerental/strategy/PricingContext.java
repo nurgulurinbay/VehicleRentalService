@@ -2,9 +2,6 @@ package com.vehiclerental.strategy;
 
 import com.vehiclerental.vehicle.Vehicle;
 
-/**
- * Context class. It delegates the calculation to the selected strategy.
- */
 public class PricingContext {
     private PricingStrategy pricingStrategy;
 
